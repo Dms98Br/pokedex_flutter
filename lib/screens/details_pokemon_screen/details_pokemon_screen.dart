@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/components/hamburger_menu.dart';
 import 'package:pokedex/components/pokemon_type.dart';
+import 'package:pokedex/screens/details_pokemon_screen/components/header.dart';
 import 'package:pokedex/screens/models/pokemons.dart';
 
 import 'components/evolutions.dart';
@@ -40,55 +41,16 @@ class _DetailsPokemonScreenState extends State<DetailsPokemonScreen>
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            height: MediaQuery.of(context).size.height / 4,
-            color: const Color.fromRGBO(196, 144, 93, 1),
-            child: Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset(
-                        "assets/images/pokemons/133_eevee_133.png",
-                        width: 150,
-                        height: 150,
-                      ),
-                      const SizedBox(
-                        width: 100,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text(
-                              "#133",
-                              style: TextStyle(
-                                  color: Colors.white60,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700),
-                            ),
-                            Text(
-                              "Eevee",
-                              style: TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white),
-                            ),
-                            PokemonType(typeText: 'normal'),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
+          const HeaderDetails(
+            id: 133,
+            name: 'eevee',
+            image: "assets/images/pokemons/133_eevee_133.png",
+            type: 'normal',
           ),
           TabBar(
             unselectedLabelColor: Colors.black,
+            labelPadding:
+                EdgeInsets.only(right: MediaQuery.of(context).size.width / 100),
             labelColor: const Color.fromRGBO(196, 144, 93, 1),
             indicatorColor: const Color.fromRGBO(196, 144, 93, 1),
             tabs: const [
@@ -116,7 +78,7 @@ class _DetailsPokemonScreenState extends State<DetailsPokemonScreen>
                 const Center(
                   child: ShinyTab(),
                 ),
-                Center(
+                const Center(
                   child: EvolutionTab(),
                 )
               ],
