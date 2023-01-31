@@ -10,7 +10,6 @@ class EvolutionTab extends StatelessWidget {
   const EvolutionTab({super.key});
   @override
   Widget build(BuildContext context) {
-    print(pokemonsList[0]['evolution'].length);
     return Scaffold(
       backgroundColor: ThemeColors.tabColor,
       body: Column(
@@ -21,13 +20,12 @@ class EvolutionTab extends StatelessWidget {
           Expanded(
             child: ListView.builder(
               shrinkWrap: true,
-              scrollDirection: Axis.horizontal,
+              scrollDirection: Axis.vertical,
               itemCount: pokemonsList[0]['evolution'].length,
               itemBuilder: (BuildContext context, int index) => Card(
                 child: Center(
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height,
                     child: Column(
                       children: [
                         Text(
