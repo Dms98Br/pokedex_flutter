@@ -33,11 +33,11 @@ class BaseStateItem extends StatelessWidget {
                   fontSize: 18,
                 ),
               ),
-              const SizedBox(
-                width: 20,
+              SizedBox(
+                width: MediaQuery.of(context).size.width / 50,
               ),
               Container(
-                width: MediaQuery.of(context).size.width / 2,
+                width: MediaQuery.of(context).size.width / 2.5,
                 clipBehavior: Clip.hardEdge,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(5),
