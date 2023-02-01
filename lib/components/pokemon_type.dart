@@ -5,20 +5,29 @@ import 'package:pokedex/helpers/fisrtLetterCapitalizes.dart';
 import 'package:pokedex/themes/theme_color.dart';
 
 class PokemonType extends StatelessWidget {
-  final typeText;
-  const PokemonType({super.key, required this.typeText});
+  final List typeArray;
+  const PokemonType({super.key, required this.typeArray});
 
   @override
   Widget build(BuildContext context) {
-    return Chip(
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(4)),
-      ),
-      label: Text(
-        fisrtLetterCapitalizes(typeText),
-        style: const TextStyle(color: Colors.white),
-      ),
-      backgroundColor: ThemeColors.typeColorPokemons[typeText.toLowerCase()],
+    return ListView.builder(
+      itemCount: typeArray.length,
+      shrinkWrap: true,
+      scrollDirection: Axis.horizontal,
+      itemBuilder: (context, i) {
+        return Chip(
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+          ),
+          padding: EdgeInsets.all(1),
+          label: Text(
+            fisrtLetterCapitalizes(typeArray[i]),
+            style: const TextStyle(color: Colors.white),
+          ),
+          backgroundColor:
+              ThemeColors.typeColorPokemons[typeArray[i].toLowerCase()],
+        );
+      },
     );
   }
 }
