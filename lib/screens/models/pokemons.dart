@@ -2,36 +2,43 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-
-import 'package:pokedex/screens/models/pokemonEvolution.dart';
+import 'package:flutter/material.dart';
 
 class Pokemons {
   String id;
   String name;
-  String type;
+  List type;
   String image;
-  String abilities;
+  List color;
+  List abilities;
+  List evolutions;
   Pokemons({
     required this.id,
     required this.name,
     required this.type,
     required this.image,
+    required this.color,
     required this.abilities,
+    required this.evolutions,
   });
 
   Pokemons copyWith({
     String? id,
     String? name,
-    String? type,
+    List? type,
     String? image,
-    String? abilities,
+    List? color,
+    List? abilities,
+    List? evolutions,
   }) {
     return Pokemons(
       id: id ?? this.id,
       name: name ?? this.name,
       type: type ?? this.type,
       image: image ?? this.image,
+      color: color ?? this.color,
       abilities: abilities ?? this.abilities,
+      evolutions: evolutions ?? this.evolutions,
     );
   }
 
@@ -41,7 +48,9 @@ class Pokemons {
       'name': name,
       'type': type,
       'image': image,
+      'color': color,
       'abilities': abilities,
+      'evolutions': evolutions,
     };
   }
 
@@ -49,9 +58,11 @@ class Pokemons {
     return Pokemons(
       id: map['id'] as String,
       name: map['name'] as String,
-      type: map['type'] as String,
+      type: map['type'],
       image: map['image'] as String,
-      abilities: map['abilities'] as String,
+      color: map['color'],
+      abilities: map['abilities'],
+      evolutions: map['evolutions'],
     );
   }
 
@@ -62,7 +73,7 @@ class Pokemons {
 
   @override
   String toString() {
-    return 'Pokemons(id: $id, name: $name, type: $type, image: $image, abilities: $abilities)';
+    return 'Pokemons(id: $id, name: $name, type: $type, image: $image, color: $color, abilities: $abilities, evolutions: $evolutions)';
   }
 
   @override
@@ -71,9 +82,11 @@ class Pokemons {
 
     return other.id == id &&
         other.name == name &&
-        other.type == type &&
+        listEquals(other.type, type) &&
         other.image == image &&
-        other.abilities == abilities;
+        listEquals(other.color, color) &&
+        listEquals(other.abilities, abilities) &&
+        listEquals(other.evolutions, evolutions);
   }
 
   @override
@@ -82,6 +95,8 @@ class Pokemons {
         name.hashCode ^
         type.hashCode ^
         image.hashCode ^
-        abilities.hashCode;
+        color.hashCode ^
+        abilities.hashCode ^
+        evolutions.hashCode;
   }
 }
