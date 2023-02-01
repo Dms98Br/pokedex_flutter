@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 
 class PageDefault extends StatelessWidget {
   final Widget itens;
-  final List<Color> array;
+  final List<Color> colorArray;
   const PageDefault({
     Key? key,
     required this.itens,
-    required this.array,
+    required this.colorArray,
   }) : super(key: key);
 
   @override
@@ -20,7 +20,7 @@ class PageDefault extends StatelessWidget {
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: array,
+          colors: colorArray,
         ),
       ),
       child: itens,
