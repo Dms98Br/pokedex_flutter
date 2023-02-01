@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_svg: ^1.1.6
   url_launcher: ^6.1.8
+  palette_generator: ^0.3.3+2
 
 dev_dependencies:
   flutter_test:
