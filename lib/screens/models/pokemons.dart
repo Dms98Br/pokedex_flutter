@@ -2,13 +2,13 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 
 class Pokemons {
   String id;
   String name;
   List type;
   String image;
+  String imageShiny;
   List color;
   List abilities;
   List evolutions;
@@ -17,6 +17,7 @@ class Pokemons {
     required this.name,
     required this.type,
     required this.image,
+    required this.imageShiny,
     required this.color,
     required this.abilities,
     required this.evolutions,
@@ -27,6 +28,7 @@ class Pokemons {
     String? name,
     List? type,
     String? image,
+    String? imageShiny,
     List? color,
     List? abilities,
     List? evolutions,
@@ -36,6 +38,7 @@ class Pokemons {
       name: name ?? this.name,
       type: type ?? this.type,
       image: image ?? this.image,
+      imageShiny: imageShiny ?? this.imageShiny,
       color: color ?? this.color,
       abilities: abilities ?? this.abilities,
       evolutions: evolutions ?? this.evolutions,
@@ -48,6 +51,7 @@ class Pokemons {
       'name': name,
       'type': type,
       'image': image,
+      'imageShiny': imageShiny,
       'color': color,
       'abilities': abilities,
       'evolutions': evolutions,
@@ -60,6 +64,7 @@ class Pokemons {
       name: map['name'] as String,
       type: map['type'],
       image: map['image'] as String,
+      imageShiny: map['imageShiny'] as String,
       color: map['color'],
       abilities: map['abilities'],
       evolutions: map['evolutions'],
@@ -73,7 +78,7 @@ class Pokemons {
 
   @override
   String toString() {
-    return 'Pokemons(id: $id, name: $name, type: $type, image: $image, color: $color, abilities: $abilities, evolutions: $evolutions)';
+    return 'Pokemons(id: $id, name: $name, type: $type, image: $image, imageShiny: $imageShiny, color: $color, abilities: $abilities, evolutions: $evolutions)';
   }
 
   @override
@@ -84,6 +89,7 @@ class Pokemons {
         other.name == name &&
         listEquals(other.type, type) &&
         other.image == image &&
+        other.imageShiny == imageShiny &&
         listEquals(other.color, color) &&
         listEquals(other.abilities, abilities) &&
         listEquals(other.evolutions, evolutions);
@@ -95,6 +101,7 @@ class Pokemons {
         name.hashCode ^
         type.hashCode ^
         image.hashCode ^
+        imageShiny.hashCode ^
         color.hashCode ^
         abilities.hashCode ^
         evolutions.hashCode;
