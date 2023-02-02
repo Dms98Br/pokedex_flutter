@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: file_names
 
 List pokemonsList = [
   {
@@ -6,8 +6,9 @@ List pokemonsList = [
     "name": "seel",
     "type": ["water"],
     "image": "assets/images/pokemons/86_seel_86.png",
+    "imageShiny": "assets/images/pokemons/86_seel_86.png",
     "color": [],
-    "abilities": [],
+    "abilities": ['Thick-fat', 'Hydration', 'Ice-body'],
     "evolutions": [
       {
         "id": "87",
@@ -22,8 +23,9 @@ List pokemonsList = [
     "name": "dewgong",
     "type": ['water', 'ice'],
     "image": "assets/images/pokemons/87_dewgong_87.png",
+    "imageShiny": "assets/images/pokemons/87_dewgong_87.png",
     "color": [],
-    "abilities": [],
+    "abilities": ['Thick-fat', 'Hydration', 'Ice-body'],
     "evolutions": [],
   },
   {
@@ -31,8 +33,9 @@ List pokemonsList = [
     "name": "eevee",
     "type": ["normal"],
     "image": "assets/images/pokemons/133_eevee_133.png",
+    "imageShiny": "assets/images/pokemons/133_eevee_shiny_133.png",
     "color": [],
-    "abilities": [],
+    "abilities": ["Run-away", "Adaptability", "Anticipation"],
     "evolutions": [
       {
         "id": "134",
@@ -89,8 +92,9 @@ List pokemonsList = [
     "name": "vapoeren",
     "type": ["water"],
     "image": "assets/images/pokemons/134_vaporeon_134.png",
+    "imageShiny": "assets/images/pokemons/134_vaporeon_shiny_134.png",
     "color": [],
-    "abilities": [],
+    "abilities": ["Water-absorb", "Hydration"],
     "evolutions": [],
   },
   {
@@ -98,8 +102,9 @@ List pokemonsList = [
     "name": "jolteon",
     "type": ["electric"],
     "image": "assets/images/pokemons/135_jolteon_135.png",
+    "imageShiny": "assets/images/pokemons/135_jolteon_shiny_135.png",
     "color": [],
-    "abilities": [],
+    "abilities": ["Volt-absorb", "Quick-feet"],
     "evolutions": [],
   },
   {
@@ -107,8 +112,9 @@ List pokemonsList = [
     "name": "flareon",
     "type": ["fire"],
     "image": "assets/images/pokemons/136_flareon_136.png",
+    "imageShiny": "assets/images/pokemons/136_flareon_shiny_136.png",
     "color": [],
-    "abilities": [],
+    "abilities": ["Flash-fire", "Guts"],
     "evolutions": [],
   },
   {
@@ -116,8 +122,9 @@ List pokemonsList = [
     "name": "espeon",
     "type": ["psychic"],
     "image": "assets/images/pokemons/196_espeon_196.png",
+    "imageShiny": "assets/images/pokemons/196_espeon_shiny_196.png",
     "color": [],
-    "abilities": [],
+    "abilities": ["Synchronize", "Magic-bounce"],
     "evolutions": [],
   },
   {
@@ -125,8 +132,9 @@ List pokemonsList = [
     "name": "umbreon",
     "type": ["dark"],
     "image": "assets/images/pokemons/197_umbreon_197.png",
+    "imageShiny": "assets/images/pokemons/197_umbreon_shiny_197.png",
     "color": [],
-    "abilities": [],
+    "abilities": ["Synchronize", "Inner-focus"],
     "evolutions": [],
   },
   {
@@ -134,8 +142,9 @@ List pokemonsList = [
     "name": "leafeon",
     "type": ["grass"],
     "image": "assets/images/pokemons/470_leafeon_470.png",
+    "imageShiny": "assets/images/pokemons/470_leafeon_shiny_470.png",
     "color": [],
-    "abilities": [],
+    "abilities": ["Chlorophyll", "Leaf-guard"],
     "evolutions": [],
   },
   {
@@ -143,8 +152,9 @@ List pokemonsList = [
     "name": "glaceon",
     "type": ["ice"],
     "image": "assets/images/pokemons/471_glaceon_471.png",
+    "imageShiny": "assets/images/pokemons/471_glaceon_shiny_471.png",
     "color": [],
-    "abilities": [],
+    "abilities": ["Snow-cloak", "Ice-body"],
     "evolutions": [],
   },
   {
@@ -152,8 +162,9 @@ List pokemonsList = [
     "name": "sylveon",
     "type": ["fairy"],
     "image": "assets/images/pokemons/700_sylveon_700.png",
+    "imageShiny": "assets/images/pokemons/700_sylveon_shiny_700.png",
     "color": [],
-    "abilities": [],
+    "abilities": ['Cute', 'Charm'],
     "evolutions": [],
   },
 ];
