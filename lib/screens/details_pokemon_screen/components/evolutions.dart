@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/components/pokemon_type.dart';
-import 'package:pokedex/data/pokemonsList.dart';
-import 'package:pokedex/screens/models/pokemonEvolution.dart';
 import 'package:pokedex/themes/theme_color.dart';
 
 import '../../../helpers/fisrtLetterCapitalizes.dart';
 
 class EvolutionTab extends StatelessWidget {
-  const EvolutionTab({super.key});
+  final List evolutionsPokemons;
+  const EvolutionTab({super.key, required this.evolutionsPokemons});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,34 +20,47 @@ class EvolutionTab extends StatelessWidget {
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.vertical,
-              itemCount: pokemonsList[0]['evolution'].length,
-              itemBuilder: (BuildContext context, int index) => Card(
-                child: Center(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width,
-                    child: Column(
-                      children: [
-                        Text(
-                          fisrtLetterCapitalizes(
-                              pokemonsList[0]['evolution'][index]['name']),
-                          style: const TextStyle(
-                            fontSize: 26,
-                            fontWeight: FontWeight.w700,
+              itemCount: evolutionsPokemons.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Card(
+                  child: Center(
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: Column(
+                        children: [
+                          Text(
+                            fisrtLetterCapitalizes(
+                                evolutionsPokemons[index]['name']),
+                            style: const TextStyle(
+                              fontSize: 26,
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
-                        ),
-                        PokemonType(
-                          typeText: pokemonsList[0]['evolution'][index]['type'],
-                        ),
-                        Image.asset(
-                          pokemonsList[0]['evolution'][index]['image'],
-                          width: 300,
-                          height: 300,
-                        ),
-                      ],
+                          SizedBox(
+                              width: MediaQuery.of(context).size.width,
+                              height: 35,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  PokemonType(
+                                    typeArray: evolutionsPokemons[index]
+                                        ['type'],
+                                    typeScroll: Axis.horizontal,
+                                  ),
+                                ],
+                              )),
+                          Image.asset(
+                            evolutionsPokemons[index]['image'],
+                            width: 300,
+                            height: 300,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ),
+                );
+              },
             ),
           ),
         ],
