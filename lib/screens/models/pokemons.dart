@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
+import 'package:pokedex/screens/models/pokemon_stats.dart';
 
 class Pokemons {
   String id;
@@ -11,17 +12,18 @@ class Pokemons {
   String imageShiny;
   List color;
   List abilities;
+  PokemonStats stats;
   List evolutions;
-  Pokemons({
-    required this.id,
-    required this.name,
-    required this.type,
-    required this.image,
-    required this.imageShiny,
-    required this.color,
-    required this.abilities,
-    required this.evolutions,
-  });
+  Pokemons(
+      {required this.id,
+      required this.name,
+      required this.type,
+      required this.image,
+      required this.imageShiny,
+      required this.color,
+      required this.abilities,
+      required this.evolutions,
+      required this.stats});
 
   Pokemons copyWith({
     String? id,
@@ -31,6 +33,7 @@ class Pokemons {
     String? imageShiny,
     List? color,
     List? abilities,
+    PokemonStats? stats,
     List? evolutions,
   }) {
     return Pokemons(
@@ -41,6 +44,7 @@ class Pokemons {
       imageShiny: imageShiny ?? this.imageShiny,
       color: color ?? this.color,
       abilities: abilities ?? this.abilities,
+      stats: stats ?? this.stats,
       evolutions: evolutions ?? this.evolutions,
     );
   }
@@ -67,6 +71,7 @@ class Pokemons {
       imageShiny: map['imageShiny'] as String,
       color: map['color'],
       abilities: map['abilities'],
+      stats: map['stats'],
       evolutions: map['evolutions'],
     );
   }
