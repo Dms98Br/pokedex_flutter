@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/screens/details_pokemon_screen/details_pokemon_screen.dart';
 import 'package:pokedex/screens/home_pokemon_screen/home_pokemon_screen.dart';
 import 'package:pokedex/screens/models/pokemons.dart';
+import 'package:pokedex/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  runApp(Pokedex());
+  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  runApp(const Pokedex());
 }
 
 class Pokedex extends StatelessWidget {
@@ -23,8 +25,8 @@ class Pokedex extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: "home",
-      home: const HomePokemonScreen(),
+      //initialRoute: "home",
+      home: const SplashScreen(),
       routes: {
         "home": (context) => const HomePokemonScreen(),
       },
