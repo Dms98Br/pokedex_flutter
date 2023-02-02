@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/screens/details_pokemon_screen/components/abilities.dart';
+import 'package:pokedex/screens/models/pokemon_stats.dart';
 
 import 'package:pokedex/themes/theme_color.dart';
 
@@ -8,8 +9,12 @@ import 'base_state.dart';
 class StatsAbilitiesTab extends StatelessWidget {
   final Color color;
   final List abilities;
+  final PokemonStats stats;
   const StatsAbilitiesTab(
-      {super.key, required this.color, required this.abilities});
+      {super.key,
+      required this.color,
+      required this.abilities,
+      required this.stats});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,10 @@ class StatsAbilitiesTab extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BaseState(color: color),
+              BaseState(
+                color: color,
+                stats: stats,
+              ),
               const SizedBox(
                 height: 4,
               ),
