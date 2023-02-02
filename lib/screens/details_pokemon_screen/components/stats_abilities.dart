@@ -6,7 +6,10 @@ import 'package:pokedex/themes/theme_color.dart';
 import 'base_state.dart';
 
 class StatsAbilitiesTab extends StatelessWidget {
-  const StatsAbilitiesTab({super.key});
+  final Color color;
+  final List abilities;
+  const StatsAbilitiesTab(
+      {super.key, required this.color, required this.abilities});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +20,15 @@ class StatsAbilitiesTab extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              BaseState(),
-              SizedBox(
+            children: [
+              BaseState(color: color),
+              const SizedBox(
                 height: 4,
               ),
-              Abilities()
+              Abilities(
+                abilities: abilities,
+                color: color,
+              )
             ],
           ),
         ),

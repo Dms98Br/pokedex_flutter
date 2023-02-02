@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'base_states_item.dart';
 
 class BaseState extends StatelessWidget {
-  const BaseState({super.key});
+  final Color color;
+  const BaseState({super.key, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -16,39 +17,39 @@ class BaseState extends StatelessWidget {
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w700,
-            color: Color.fromRGBO(196, 144, 93, 1),
+            color: Colors.black,
           ),
         ),
         const SizedBox(
           height: 15,
         ),
-        const BaseStateItem(
-          color: Color.fromRGBO(196, 144, 93, 1),
+        BaseStateItem(
+          color: color,
           name: "HP",
           value: 40,
         ),
-        const BaseStateItem(
-          color: Color.fromRGBO(196, 144, 93, 1),
+        BaseStateItem(
+          color: color,
           name: "Attack",
           value: 55,
         ),
-        const BaseStateItem(
-          color: Color.fromRGBO(196, 144, 93, 1),
+        BaseStateItem(
+          color: color,
           name: "Defense",
           value: 50,
         ),
-        const BaseStateItem(
-          color: Color.fromRGBO(196, 144, 93, 1),
+        BaseStateItem(
+          color: color,
           name: "Special-attack",
           value: 45,
         ),
-        const BaseStateItem(
-          color: Color.fromRGBO(196, 144, 93, 1),
+        BaseStateItem(
+          color: color,
           name: "Special-defense",
           value: 65,
         ),
-        const BaseStateItem(
-          color: Color.fromRGBO(196, 144, 93, 1),
+        BaseStateItem(
+          color: color,
           name: "Speed",
           value: 55,
         ),
