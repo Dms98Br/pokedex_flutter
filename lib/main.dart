@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/screens/details_pokemon_screen/details_pokemon_screen.dart';
+import 'package:pokedex/screens/home_pokemon_screen/home_pokemon_screen.dart';
+import 'package:pokedex/screens/models/pokemons.dart';
 
-void main() {
-  runApp(const Pokedex());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  runApp(Pokedex());
 }
 
 class Pokedex extends StatelessWidget {
-  const Pokedex({super.key});
+  const Pokedex({
+    super.key,
+  });
 
   // This widget is the root of your application.
   @override
@@ -17,7 +23,22 @@ class Pokedex extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const DetailsPokemonScreen(),
+      initialRoute: "home",
+      home: const HomePokemonScreen(),
+      routes: {
+        "home": (context) => const HomePokemonScreen(),
+      },
+      onGenerateRoute: (settings) {
+        if (settings.name == 'details') {
+          final Pokemons pokemon = settings.arguments as Pokemons;
+          return MaterialPageRoute(
+            builder: (context) {
+              return DetailsPokemonScreen(pokemon: pokemon);
+            },
+          );
+        }
+        return null;
+      },
     );
   }
 }
