@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/themes/theme_color.dart';
 
 class ShinyTab extends StatelessWidget {
-  const ShinyTab({super.key});
+  final String image;
+  const ShinyTab({super.key, required this.image});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class ShinyTab extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/images/pokemons/133_eevee_shiny_133.png",
+              image,
               width: 300,
               height: 300,
             )
