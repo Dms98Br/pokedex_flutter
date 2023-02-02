@@ -1,54 +1,39 @@
 import 'package:flutter/material.dart';
 
+import 'abilities_types.dart';
+
 class Abilities extends StatelessWidget {
-  const Abilities({super.key});
+  final List abilities;
+  final Color color;
+  const Abilities({super.key, required this.abilities, required this.color});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
-        SizedBox(
+      children: [
+        const SizedBox(
           height: 8,
         ),
-        Text(
+        const Text(
           "Abilities",
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w700,
-            color: Color.fromRGBO(196, 144, 93, 1),
+            color: Colors.black,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 8,
         ),
-        Text(
-          "Run-away",
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
         SizedBox(
-          height: 4,
-        ),
-        Text(
-          "Anticipation",
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        SizedBox(
-          height: 4,
-        ),
-        Text(
-          "Adaptability",
-          style: TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
+          width: MediaQuery.of(context).size.width,
+          height: 50,
+          child: AbilitiesType(
+              typeArray: abilities,
+              typeScroll: Axis.horizontal,
+              colorPokemon: color),
+        )
       ],
     );
   }
