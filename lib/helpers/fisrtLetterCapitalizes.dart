@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 fisrtLetterCapitalizes(String text) {
   var words = text.toLowerCase();
   for (var i = 0; i < words.length; i++) {
