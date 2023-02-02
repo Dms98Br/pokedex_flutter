@@ -38,18 +38,18 @@ dependencies:
   flutter_svg: ^1.1.6
   url_launcher: ^6.1.8
   palette_generator: ^0.3.3+2
-
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^2.0.0
-
+  flutter_native_splash: ^2.2.17
+flutter_native_splash:  
+  image: 'assets/images/pokedex.png'
+  color: "#FFFFFF"
+  android_12:    
+    image: 'assets/images/pokedex.png'
+    color: "#FFFFFF"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
