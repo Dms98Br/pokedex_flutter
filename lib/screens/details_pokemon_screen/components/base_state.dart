@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:pokedex/screens/models/pokemon_stats.dart';
 
 import 'base_states_item.dart';
 
 class BaseState extends StatelessWidget {
   final Color color;
-  const BaseState({super.key, required this.color});
+  final PokemonStats stats;
+
+  const BaseState({super.key, required this.color, required this.stats});
 
   @override
   Widget build(BuildContext context) {
@@ -26,32 +29,32 @@ class BaseState extends StatelessWidget {
         BaseStateItem(
           color: color,
           name: "HP",
-          value: 40,
+          value: stats.hp,
         ),
         BaseStateItem(
           color: color,
           name: "Attack",
-          value: 55,
+          value: stats.attack,
         ),
         BaseStateItem(
           color: color,
           name: "Defense",
-          value: 50,
+          value: stats.defense,
         ),
         BaseStateItem(
           color: color,
           name: "Special-attack",
-          value: 45,
+          value: stats.specialAttack,
         ),
         BaseStateItem(
           color: color,
           name: "Special-defense",
-          value: 65,
+          value: stats.specialDefense,
         ),
         BaseStateItem(
           color: color,
           name: "Speed",
-          value: 55,
+          value: stats.speed,
         ),
       ],
     );
