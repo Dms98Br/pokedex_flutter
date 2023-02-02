@@ -39,9 +39,6 @@ class HeaderDetails extends StatelessWidget {
                   width: 150,
                   height: 150,
                 ),
-                // const SizedBox(
-                //   width: 50,
-                // ),
                 Padding(
                   padding: const EdgeInsets.only(right: 20),
                   child: Column(
