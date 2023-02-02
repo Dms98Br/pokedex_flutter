@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/components/hamburger_menu.dart';
-import 'package:pokedex/components/pokemon_type.dart';
 import 'package:pokedex/screens/details_pokemon_screen/components/header.dart';
 import 'package:pokedex/screens/models/pokemons.dart';
 
+import '../../helpers/generateColors.dart';
 import 'components/evolutions.dart';
 import 'components/shiny.dart';
 import 'components/stats_abilities.dart';
 
 class DetailsPokemonScreen extends StatefulWidget {
-  const DetailsPokemonScreen({super.key});
+  final Pokemons pokemon;
+
+  const DetailsPokemonScreen({
+    super.key,
+    required this.pokemon,
+  });
 
   @override
   State<DetailsPokemonScreen> createState() => _DetailsPokemonScreenState();
@@ -18,11 +22,22 @@ class DetailsPokemonScreen extends StatefulWidget {
 class _DetailsPokemonScreenState extends State<DetailsPokemonScreen>
     with TickerProviderStateMixin {
   late TabController _tabController;
-
+  late Color color = Colors.white;
   @override
   void initState() {
     _tabController = TabController(vsync: this, length: 3);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _getColor();
+    });
     super.initState();
+  }
+
+  _getColor() async {
+    final auxColor =
+        await generateColor().getColorImage(image: widget.pokemon.image);
+    setState(() {
+      color = auxColor;
+    });
   }
 
   @override
@@ -33,26 +48,35 @@ class _DetailsPokemonScreenState extends State<DetailsPokemonScreen>
 
   @override
   Widget build(BuildContext context) {
+    final pokemon = widget.pokemon;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(196, 144, 93, 1),
+        backgroundColor: color,
+        iconTheme: IconThemeData(
+          color: generateColor().colorLightOrDark(color)
+              ? Colors.black
+              : Colors.white,
+        ),
       ),
-      drawer: const HamburgerMenu(),
+      //drawer: const HamburgerMenu(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const HeaderDetails(
-            id: 133,
-            name: 'eevee',
-            image: "assets/images/pokemons/133_eevee_133.png",
-            type: 'normal',
+          HeaderDetails(
+            idPokemon: int.parse(pokemon.id),
+            namePokemon: pokemon.name,
+            imagePokemon: pokemon.image,
+            typePokemon: pokemon.type,
+            color: color,
           ),
           TabBar(
-            unselectedLabelColor: Colors.black,
+            unselectedLabelColor: Colors.black45,
             labelPadding:
                 EdgeInsets.only(right: MediaQuery.of(context).size.width / 100),
-            labelColor: const Color.fromRGBO(196, 144, 93, 1),
-            indicatorColor: const Color.fromRGBO(196, 144, 93, 1),
+            dividerColor: Colors.black45,
+            labelColor: Colors.black,
+            indicatorColor: color,
             tabs: const [
               Tab(
                 text: 'Stats/Abilities',
@@ -72,11 +96,14 @@ class _DetailsPokemonScreenState extends State<DetailsPokemonScreen>
               controller: _tabController,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                const Center(
-                  child: StatsAbilitiesTab(),
+                Center(
+                  child: StatsAbilitiesTab(
+                    color: color,
+                    abilities: pokemon.abilities,
+                  ),
                 ),
-                const Center(
-                  child: ShinyTab(),
+                Center(
+                  child: ShinyTab(image: pokemon.imageShiny),
                 ),
                 const Center(
                   child: EvolutionTab(),
