@@ -49,7 +49,6 @@ class _DetailsPokemonScreenState extends State<DetailsPokemonScreen>
   @override
   Widget build(BuildContext context) {
     final pokemon = widget.pokemon;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: color,
@@ -100,13 +99,14 @@ class _DetailsPokemonScreenState extends State<DetailsPokemonScreen>
                   child: StatsAbilitiesTab(
                     color: color,
                     abilities: pokemon.abilities,
+                    stats: pokemon.stats,
                   ),
                 ),
                 Center(
                   child: ShinyTab(image: pokemon.imageShiny),
                 ),
-                const Center(
-                  child: EvolutionTab(),
+                Center(
+                  child: EvolutionTab(evolutionsPokemons: pokemon.evolutions),
                 )
               ],
             ),
