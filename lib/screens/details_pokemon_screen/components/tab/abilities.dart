@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'abilities_types.dart';
+import '../abilities/abilities_types.dart';
 
 class Abilities extends StatelessWidget {
   final List abilities;

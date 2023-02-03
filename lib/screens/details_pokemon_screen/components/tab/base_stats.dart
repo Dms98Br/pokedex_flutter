@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/screens/models/pokemon_stats.dart';
 
-import 'base_states_item.dart';
+import '../base_stats/base_stats_item.dart';
 
-class BaseState extends StatelessWidget {
+class BaseStats extends StatelessWidget {
   final Color color;
   final PokemonStats stats;
 
-  const BaseState({super.key, required this.color, required this.stats});
+  const BaseStats({super.key, required this.color, required this.stats});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,7 @@ class BaseState extends StatelessWidget {
       // ignore: prefer_const_literals_to_create_immutables
       children: [
         const Text(
-          "Base state",
+          "Base stats",
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w700,

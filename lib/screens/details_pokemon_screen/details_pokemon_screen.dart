@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/screens/details_pokemon_screen/components/header.dart';
+import 'package:pokedex/screens/details_pokemon_screen/components/header/header.dart';
 import 'package:pokedex/screens/models/pokemons.dart';
 
 import '../../helpers/fisrtLetterCapitalizes.dart';
 import '../../helpers/generateColors.dart';
-import 'components/evolutions.dart';
-import 'components/shiny.dart';
-import 'components/stats_abilities.dart';
+import 'components/evolutions/evolutions.dart';
+import 'components/tab/shiny.dart';
+import 'components/abilities/abilities_stats.dart';
 
 class DetailsPokemonScreen extends StatefulWidget {
   final Pokemons pokemon;

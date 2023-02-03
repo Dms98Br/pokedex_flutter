@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/components/pokemon_type.dart';
 import 'package:pokedex/themes/theme_color.dart';
 
-import '../../../helpers/fisrtLetterCapitalizes.dart';
+import '../../../../helpers/fisrtLetterCapitalizes.dart';
 
 class EvolutionTab extends StatelessWidget {
   final List evolutionsPokemons;

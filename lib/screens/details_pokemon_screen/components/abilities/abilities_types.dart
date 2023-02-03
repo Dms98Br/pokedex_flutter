@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/helpers/fisrtLetterCapitalizes.dart';
 
-import '../../../helpers/generateColors.dart';
+import '../../../../helpers/generateColors.dart';
 
 class AbilitiesType extends StatelessWidget {
   final List typeArray;

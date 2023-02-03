@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/screens/details_pokemon_screen/components/abilities.dart';
+import 'package:pokedex/screens/details_pokemon_screen/components/tab/abilities.dart';
 import 'package:pokedex/screens/models/pokemon_stats.dart';
 
 import 'package:pokedex/themes/theme_color.dart';
 
-import 'base_state.dart';
+import '../tab/base_stats.dart';
 
 class StatsAbilitiesTab extends StatelessWidget {
   final Color color;
@@ -26,7 +26,7 @@ class StatsAbilitiesTab extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              BaseState(
+              BaseStats(
                 color: color,
                 stats: stats,
               ),

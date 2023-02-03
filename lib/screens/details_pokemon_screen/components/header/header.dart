@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 import 'package:pokedex/helpers/fisrtLetterCapitalizes.dart';
 
-import '../../../components/pokemon_type.dart';
-import '../../../helpers/generateColors.dart';
+import '../../../../components/pokemon_type.dart';
+import '../../../../helpers/generateColors.dart';
 
 class HeaderDetails extends StatelessWidget {
   final int idPokemon;
