@@ -24,61 +24,31 @@ class HeaderDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 4,
+      height: MediaQuery.of(context).size.height / 3.5,
       color: color,
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset(
-                  imagePokemon,
-                  width: 150,
-                  height: 150,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Image.asset(
+            imagePokemon,
+            width: 150,
+            height: 150,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                height: 50,
+                child: PokemonType(
+                  typeArray: typePokemon,
+                  typeScroll: Axis.horizontal,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        "#$idPokemon",
-                        style: TextStyle(
-                            color: generateColor().colorLightOrDark(color)
-                                ? Colors.black54
-                                : Colors.white54,
-                            fontSize: 18,
-                            fontWeight: FontWeight.w700),
-                      ),
-                      Text(
-                        fisrtLetterCapitalizes(namePokemon),
-                        style: TextStyle(
-                          fontSize: 26,
-                          fontWeight: FontWeight.w700,
-                          color: generateColor().colorLightOrDark(color)
-                              ? Colors.black
-                              : Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 50,
-                        width: 100,
-                        child: PokemonType(
-                          typeArray: typePokemon,
-                          typeScroll: Axis.horizontal,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
+              ),
+            ],
+          ),
+        ],
       ),
     );
   }

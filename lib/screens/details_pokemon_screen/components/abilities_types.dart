@@ -33,8 +33,8 @@ class AbilitiesType extends StatelessWidget {
               fisrtLetterCapitalizes(typeArray[i]),
               style: TextStyle(
                   color: generateColor().colorLightOrDark(colorPokemon)
-                      ? Colors.black54
-                      : Colors.white54),
+                      ? Colors.black
+                      : Colors.white),
             ),
             backgroundColor: colorPokemon,
           ),

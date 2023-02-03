@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokedex/screens/details_pokemon_screen/components/header.dart';
 import 'package:pokedex/screens/models/pokemons.dart';
 
+import '../../helpers/fisrtLetterCapitalizes.dart';
 import '../../helpers/generateColors.dart';
 import 'components/evolutions.dart';
 import 'components/shiny.dart';
@@ -52,6 +53,27 @@ class _DetailsPokemonScreenState extends State<DetailsPokemonScreen>
     return Scaffold(
       appBar: AppBar(
         backgroundColor: color,
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              '${fisrtLetterCapitalizes(pokemon.name)}',
+              style: TextStyle(
+                color: generateColor().colorLightOrDark(color)
+                    ? Colors.black
+                    : Colors.white,
+              ),
+            ),
+            Text(
+              '#${pokemon.id}',
+              style: TextStyle(
+                color: generateColor().colorLightOrDark(color)
+                    ? Colors.black54
+                    : Colors.white54,
+              ),
+            ),
+          ],
+        ),
         iconTheme: IconThemeData(
           color: generateColor().colorLightOrDark(color)
               ? Colors.black

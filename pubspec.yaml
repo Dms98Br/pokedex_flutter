@@ -45,10 +45,10 @@ dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_native_splash: ^2.2.17
 flutter_native_splash:  
-  image: 'assets/images/pokedex.png'
+  image: 'assets/images/fundo_transparente.png'
   color: "#FFFFFF"
   android_12:    
-    image: 'assets/images/pokedex.png'
+    image: 'assets/images/fundo_transparente.png'
     color: "#FFFFFF"
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
