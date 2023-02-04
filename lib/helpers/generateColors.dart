@@ -7,11 +7,20 @@ class generateColor {
   Future<Color> getColorImage({
     required String image,
   }) async {
-    PaletteGenerator? paletteGenerator =
-        await PaletteGenerator.fromImageProvider(
-      AssetImage(image),
-      maximumColorCount: 20,
-    );
+    final locationImage = image.toString().contains('http');
+    PaletteGenerator? paletteGenerator;
+    if (locationImage) {
+      paletteGenerator = await PaletteGenerator.fromImageProvider(
+        NetworkImage(image),
+        maximumColorCount: 20,
+      );
+    } else {
+      paletteGenerator = await PaletteGenerator.fromImageProvider(
+        AssetImage(image),
+        maximumColorCount: 20,
+      );
+    }
+
     if (paletteGenerator.colors.first.toString().isNotEmpty) {
       return paletteGenerator.colors.first;
     }
