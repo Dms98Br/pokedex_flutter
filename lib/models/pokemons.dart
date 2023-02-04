@@ -2,7 +2,7 @@
 import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
-import 'package:pokedex/screens/models/pokemon_stats.dart';
+import 'package:pokedex/models/pokemon_stats.dart';
 
 class Pokemons {
   String id;
@@ -58,6 +58,7 @@ class Pokemons {
       'imageShiny': imageShiny,
       'color': color,
       'abilities': abilities,
+      'stats': stats,
       'evolutions': evolutions,
     };
   }
