@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/screens/details_pokemon_screen/components/tab/abilities.dart';
-import 'package:pokedex/screens/models/pokemon_stats.dart';
+import 'package:pokedex/models/pokemon_stats.dart';
 
 import 'package:pokedex/themes/theme_color.dart';
 

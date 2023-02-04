@@ -5,7 +5,7 @@ import 'package:pokedex/components/page_default.dart';
 import 'package:pokedex/components/pokemon_type.dart';
 import 'package:pokedex/helpers/fisrtLetterCapitalizes.dart';
 import 'package:pokedex/screens/home_pokemon_screen/components/pokemon_card.dart';
-import 'package:pokedex/screens/models/pokemons.dart';
+import 'package:pokedex/models/pokemons.dart';
 import 'package:pokedex/services/pokemon_service.dart';
 import 'package:pokedex/themes/theme_color.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/screens/models/pokemons.dart';
+import 'package:pokedex/models/pokemons.dart';
 
 import '../../../components/pokemon_type.dart';
 import '../../../helpers/fisrtLetterCapitalizes.dart';

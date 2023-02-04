@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokedex/screens/models/pokemon_stats.dart';
+import 'package:pokedex/models/pokemon_stats.dart';
 
 import '../base_stats/base_stats_item.dart';
 
