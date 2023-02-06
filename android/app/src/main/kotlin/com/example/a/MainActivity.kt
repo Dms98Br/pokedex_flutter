@@ -1,4 +1,4 @@
-package com.example.a
+package br.dms.a
 
 import io.flutter.embedding.android.FlutterActivity
 
