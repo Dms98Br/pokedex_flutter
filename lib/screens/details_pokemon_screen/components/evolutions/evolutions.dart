@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/components/pokemon_type.dart';
+import 'package:pokedex/models/pokemon_evolution.dart';
 import 'package:pokedex/themes/theme_color.dart';
 
 import '../../../../helpers/fisrtLetterCapitalizes.dart';
@@ -22,6 +23,8 @@ class EvolutionTab extends StatelessWidget {
               scrollDirection: Axis.vertical,
               itemCount: evolutionsPokemons.length,
               itemBuilder: (BuildContext context, int index) {
+                PokemonEvolution pokemon =
+                    evolutionsPokemons[index] as PokemonEvolution;
                 return Card(
                   child: Center(
                     child: SizedBox(
@@ -29,8 +32,7 @@ class EvolutionTab extends StatelessWidget {
                       child: Column(
                         children: [
                           Text(
-                            fisrtLetterCapitalizes(
-                                evolutionsPokemons[index]['name']),
+                            fisrtLetterCapitalizes(pokemon.name),
                             style: const TextStyle(
                               fontSize: 26,
                               fontWeight: FontWeight.w700,
@@ -44,17 +46,22 @@ class EvolutionTab extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   PokemonType(
-                                    typeArray: evolutionsPokemons[index]
-                                        ['type'],
+                                    typeArray: pokemon.type,
                                     typeScroll: Axis.horizontal,
                                   ),
                                 ],
                               )),
-                          Image.asset(
-                            evolutionsPokemons[index]['image'],
-                            width: 300,
-                            height: 300,
-                          ),
+                          pokemon.image.contains('http')
+                              ? Image.network(
+                                  pokemon.image,
+                                  width: 300,
+                                  height: 300,
+                                )
+                              : Image.asset(
+                                  pokemon.image,
+                                  width: 300,
+                                  height: 300,
+                                ),
                         ],
                       ),
                     ),

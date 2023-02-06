@@ -1,10 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-
-import 'package:pokedex/helpers/fisrtLetterCapitalizes.dart';
-
 import '../../../../components/pokemon_type.dart';
-import '../../../../helpers/generateColors.dart';
 
 class HeaderDetails extends StatelessWidget {
   final int idPokemon;
@@ -30,11 +26,17 @@ class HeaderDetails extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image.asset(
-            imagePokemon,
-            width: 150,
-            height: 150,
-          ),
+          imagePokemon.contains('http')
+              ? Image.network(
+                  imagePokemon,
+                  width: 150,
+                  height: 150,
+                )
+              : Image.asset(
+                  imagePokemon,
+                  width: 150,
+                  height: 150,
+                ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,

@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 class PokeApiFormated {
   final int count;
   final String next;
-  final String previous;
+  final String? previous;
   final List results;
   PokeApiFormated({
     required this.count,
@@ -41,8 +41,8 @@ class PokeApiFormated {
   factory PokeApiFormated.fromMap(Map<String, dynamic> map) {
     return PokeApiFormated(
       count: map['count'] as int,
-      next: map['next'] as String,
-      previous: map['previous'] as String,
+      next: map['next'] ?? '',
+      previous: map['previous'] ?? '',
       results: map['results'],
     );
   }

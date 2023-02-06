@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/components/appBar.dart';
 import 'package:pokedex/components/hamburger_menu.dart';
-import 'package:pokedex/components/page_default.dart';
-import 'package:pokedex/components/pokemon_type.dart';
-import 'package:pokedex/helpers/fisrtLetterCapitalizes.dart';
 import 'package:pokedex/screens/home_pokemon_screen/components/pokemon_card.dart';
 import 'package:pokedex/models/pokemons.dart';
 import 'package:pokedex/services/pokemon_service.dart';
 import 'package:pokedex/themes/theme_color.dart';
-
 import '../../components/loading_screen.dart';
-import '../../helpers/generateColors.dart';
 
 class HomePokemonScreen extends StatefulWidget {
   const HomePokemonScreen({super.key});
@@ -20,11 +15,19 @@ class HomePokemonScreen extends StatefulWidget {
 }
 
 class _HomePokemonScreenState extends State<HomePokemonScreen> {
-  List database = [];
+  List _database = [];
+  final String _limit = '10';
+  int _offset = 0;
+  bool _loadingMore = false;
+  bool _loadingInitial = false;
+
+  late ScrollController _controller;
+
   @override
   void initState() {
-    refresh();
+    _initialCharge();
     super.initState();
+    _controller = ScrollController()..addListener(_loadPokemon);
   }
 
   @override
@@ -44,26 +47,62 @@ class _HomePokemonScreenState extends State<HomePokemonScreen> {
             colors: [ThemeColors.backgroudColor1, ThemeColors.backgroudColor2],
           ),
         ),
-        child: database.isEmpty
-            ? const LoadingScreen(
-                color: Colors.black,
-              )
-            : ListView.builder(
-                itemCount: database.length,
-                itemBuilder: (context, i) {
-                  final Pokemons pokemon = database[i] as Pokemons;
+        child: Column(
+          children: [
+            Expanded(
+              child: _loadingInitial
+                  ? const LoadingScreen(
+                      color: Colors.black,
+                    )
+                  : ListView.builder(
+                      controller: _controller,
+                      itemCount: _database.length,
+                      itemBuilder: (context, i) {
+                        final Pokemons pokemon = _database[i] as Pokemons;
 
-                  return PokemonCards(pokemon: pokemon);
-                },
-              ),
+                        return PokemonCards(pokemon: pokemon);
+                      },
+                    ),
+            ),
+            if (_loadingMore)
+              Padding(
+                padding: const EdgeInsets.only(top: 10, bottom: 40),
+                child: Image.asset(
+                  'assets/images/pikachu_running.gif',
+                ),
+              )
+          ],
+        ),
       ),
     );
   }
 
-  void refresh() async {
-    final testePokemon = await PokemonService().getAll();
+  void _initialCharge() async {
     setState(() {
-      database = testePokemon;
+      _loadingInitial = true;
     });
+    final getPokemons = await PokemonService().getAll(_limit, _offset);
+    setState(() {
+      _database = getPokemons;
+      _loadingInitial = false;
+    });
+  }
+
+  void _loadPokemon() async {
+    if (_loadingMore == false) {
+      setState(() {
+        _loadingMore = true;
+      });
+      _offset += int.parse(_limit);
+      final getPokemons = await PokemonService().getAll(_limit, _offset);
+      for (var pokemon in getPokemons) {
+        setState(() {
+          _database.add(pokemon);
+        });
+      }
+      setState(() {
+        _loadingMore = false;
+      });
+    }
   }
 }

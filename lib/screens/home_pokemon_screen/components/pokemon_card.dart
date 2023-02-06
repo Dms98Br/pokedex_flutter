@@ -73,12 +73,19 @@ class PokemonCards extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      pokemon.image.toString(),
-                      alignment: Alignment.center,
-                      width: 70,
-                      height: 70,
-                    ),
+                    pokemon.image.toString().contains('http')
+                        ? Image.network(
+                            pokemon.image.toString(),
+                            alignment: Alignment.center,
+                            width: 70,
+                            height: 70,
+                          )
+                        : Image.asset(
+                            pokemon.image.toString(),
+                            alignment: Alignment.center,
+                            width: 70,
+                            height: 70,
+                          )
                   ],
                 ),
               ),

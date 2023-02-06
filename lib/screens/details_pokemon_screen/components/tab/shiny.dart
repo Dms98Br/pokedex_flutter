@@ -13,11 +13,17 @@ class ShinyTab extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              image,
-              width: 300,
-              height: 300,
-            )
+            image.toString().contains('http')
+                ? Image.network(
+                    image,
+                    width: 300,
+                    height: 300,
+                  )
+                : Image.asset(
+                    image,
+                    width: 300,
+                    height: 300,
+                  )
           ],
         ),
       ),

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pokedex/screens/details_pokemon_screen/details_pokemon_screen.dart';
 import 'package:pokedex/screens/home_pokemon_screen/home_pokemon_screen.dart';
-import 'package:pokedex/screens/models/pokemons.dart';
 import 'package:pokedex/splash_screen.dart';
+
+import 'models/pokemons.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
