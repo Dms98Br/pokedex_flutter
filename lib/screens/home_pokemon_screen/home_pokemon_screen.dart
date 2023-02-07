@@ -20,13 +20,12 @@ class _HomePokemonScreenState extends State<HomePokemonScreen> {
   int _offset = 0;
   bool _loadingMore = false;
   bool _loadingInitial = false;
-
   late ScrollController _controller;
 
   @override
   void initState() {
-    _initialCharge();
     super.initState();
+    _initialCharge();
     _controller = ScrollController()..addListener(_loadPokemon);
   }
 
@@ -82,6 +81,7 @@ class _HomePokemonScreenState extends State<HomePokemonScreen> {
       _loadingInitial = true;
     });
     final getPokemons = await PokemonService().getAll(_limit, _offset);
+
     setState(() {
       _database = getPokemons;
       _loadingInitial = false;
